@@ -1,0 +1,16 @@
+@mixin font-weight-color($color, $weight){
+    font-weight: $font-bold * $weight;
+    color: $color;
+}
+
+@mixin mediaquery($break) {
+    @media (min-width: $break) {
+        @content;
+    }
+}
+
+@mixin flexy($dis: flex, $dir: null, $just: null){
+    display: $dis;
+    flex-direction: $dir;
+    justify-content: $just;
+}

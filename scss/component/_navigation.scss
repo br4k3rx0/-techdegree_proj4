@@ -1,0 +1,39 @@
+/* ============================================= */
+/*              Navigation                       */
+/* ============================================= */
+
+.nav {
+    padding-left: 0;
+    flex-basis: 100%;
+    @include flexy($dir: column);
+    @include mediaquery($media-lg) {
+        @include flexy($dir: row, $just:flex-end);
+        align-items: center;
+    }
+}
+  
+.nav-link {
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+    transition: 
+      background-color .2s ease-in-out, 
+      color .2s ease-in-out;
+    @include mediaquery($media-lg) {
+        flex-basis: 100px;
+    }
+    &:hover {
+        color: #fff;
+        background-color: #58e1c1;
+    }
+}
+
+    
+.logo {
+    @include mediaquery($media-lg) {
+        margin-left: initial;
+        margin-right: initial;
+    }
+}

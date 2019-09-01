@@ -1,0 +1,64 @@
+.container {
+    padding: 0 10px;
+    @include mediaquery($media-lg) {
+        max-width: 1400px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.centered {
+    @include mediaquery($media-lg) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+  
+.row {
+    @include flexy($dir: column);
+    padding: 1em 10px;
+    @include mediaquery($media-lg) {
+        @include flexy($dir: row);        
+    }
+}
+  
+[class^=col] {
+    margin-top: 10px;
+    flex-basis: 100%;
+    min-height: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    @include mediaquery($media-lg) {
+        @include flexy($just: center);
+        margin-top: 0;
+        align-items: center;
+    }
+}
+
+[class^=col] + [class^=col] {
+    @include mediaquery($media-lg) {
+        margin-left: 10px; 
+    }
+}
+
+.col {
+    @include mediaquery($media-lg) {
+        @for $i from 1 through 12 {
+            &-#{$i} {
+                flex-basis: #{8.33% * $i};
+            }
+        }
+    }
+}
+
+@each $i, $color in $color-col {
+    .theme.col-#{$i} {
+        background-color: #{$color};
+    }
+}
+
+.card {
+    flex-basis: 100%;
+}
